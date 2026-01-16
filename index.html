@@ -6,126 +6,326 @@
   <title>Back To Basics Co</title>
 
   <style>
-    body {
+    :root{
+      --bg:#f4efe8;
+      --ink:#2a2a2a;
+      --muted:#6b6b6b;
+      --card:#ffffff;
+      --border:#e7ded2;
+      --green:#2e4b3f;
+      --green2:#243c32;
+      --shadow: 0 10px 30px rgba(0,0,0,.06);
+      --radius: 18px;
+      --max: 980px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: Georgia, "Times New Roman", serif;
+      color:var(--ink);
+      background: radial-gradient(1200px 700px at 50% -200px, #fff 0%, var(--bg) 55%, #efe6dc 100%);
+    }
+    a{ color:inherit; }
+    .wrap{ max-width: var(--max); margin:0 auto; padding: 28px 18px 70px; }
+
+    /* Top nav */
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding: 10px 0 18px;
+    }
+    .brand{
+      font-weight:800;
+      letter-spacing: .08em;
+      text-transform:uppercase;
+      font-size: 16px;
+    }
+    .nav{
+      display:flex; gap:14px; flex-wrap:wrap;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .nav a{ text-decoration:none; padding:8px 10px; border-radius:999px; }
+    .nav a:hover{ background: rgba(46,75,63,.08); color: var(--ink); }
+
+    /* Hero */
+    .hero{
+      text-align:center;
+      padding: 22px 0 12px;
+    }
+    .hero .kicker{
+      font-size: 18px;
+      color: var(--muted);
+      margin: 4px 0 18px;
+    }
+    .hero h1{
       margin: 0;
-      font-family: Georgia, serif;
-      background: #f4efe8;
-      color: #2b2b2b;
-      text-align: center;
+      font-size: clamp(36px, 5vw, 56px);
+      letter-spacing: .02em;
+      text-transform:uppercase;
     }
-
-    header {
-      padding: 3rem 1rem 2rem;
+    .hero .sub{
+      margin: 10px 0 18px;
+      font-size: 18px;
+      color: var(--muted);
     }
-
-    h1 {
-      font-size: 2.6rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 1px;
-    }
-
-    .tagline {
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      margin-bottom: 2rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 1.6rem;
-      background: #2f3f2f;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-
-    .section {
-      max-width: 700px;
-      margin: 0 auto 3rem;
-      padding: 0 1rem;
-    }
-
-    .card {
-      background: #ffffff;
+    .cta{
+      display:inline-block;
+      text-decoration:none;
+      background: var(--green);
+      color:#fff;
+      padding: 14px 26px;
       border-radius: 12px;
-      padding: 1.8rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-      text-align: left;
+      box-shadow: var(--shadow);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing:.02em;
+    }
+    .cta:hover{ background: var(--green2); transform: translateY(-1px); }
+
+    /* Sections */
+    .section-title{
+      margin: 28px 0 12px;
+      text-align:center;
+      font-size: 16px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      letter-spacing:.04em;
+      text-transform: uppercase;
     }
 
-    .card h2 {
-      margin-top: 0;
+    /* Cards grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 720px){
+      .grid{ grid-template-columns: 1fr; }
+      .topbar{ align-items:flex-start; flex-direction:column; }
     }
 
-    footer {
-      padding: 2rem 1rem;
-      font-size: 0.85rem;
-      color: #555;
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow);
+      text-align:left;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .icon{
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(46,75,63,.10);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 26px;
+      flex: 0 0 auto;
+    }
+    .card h2{
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+    .card p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.35;
+    }
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      background: var(--green);
+      color:#fff;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:700;
+      font-size: 14px;
+    }
+    .btn:hover{ background: var(--green2); }
+
+    /* Footer blocks */
+    .bottom{
+      margin-top: 26px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 720px){
+      .bottom{ grid-template-columns: 1fr; }
+    }
+    .panel{
+      background: rgba(255,255,255,.6);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+    .panel h3{
+      margin:0 0 10px;
+      font-size: 18px;
+    }
+    .panel ul{
+      margin:0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .signup{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    input{
+      padding: 12px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      min-width: 220px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .small{
+      color: var(--muted);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+    footer{
+      margin-top: 30px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 12px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
-    /* INTERNAL NOTE — not shown */
-    .inventory-internal {
-      display: none;
-    }
+    /* Optional helper: hide any "internal" notes if you ever add them */
+    .internal-note{ display:none !important; }
   </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-<header>
-  <div class="tagline">Learn. Build. Eat well. Help others do the same.</div>
-  <h1>BACK TO BASICS CO</h1>
-  <div class="tagline">Natural · Handmade · Community-Focused</div>
-</header>
-
-<section class="section">
-
-  <div class="card">
-    <h2>Natural Soaps</h2>
-    <p>Small-batch tallow soaps made with real ingredients.</p>
-    <p><strong>$8 per bar</strong></p>
-
-    <!-- REPLACE THIS LINK WITH YOUR SQUARE PAYMENT LINK -->
-    <a
-      class="btn"
-      href="https://square.link/u/REPLACE_THIS"
-      target="_blank"
-      rel="noopener"
-    >
-      Buy Soap
-    </a>
-
-    <!-- INTERNAL INVENTORY (FOR YOU ONLY) -->
-    <div class="inventory-internal">
-      Inventory: 10 bars
+    <div class="topbar">
+      <div class="brand">Back To Basics Co</div>
+      <div class="nav">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#archery">Archery</a>
+        <a href="#bees">Bees &amp; Honey</a>
+        <a href="#food">Food &amp; Drinks</a>
+      </div>
     </div>
+
+    <div id="home" class="hero">
+      <div class="kicker">Learn. Build. Eat well. Help others do the same.</div>
+      <h1>Back To Basics Co</h1>
+      <div class="sub">Natural • Handmade • Community-Focused</div>
+      <a class="cta" href="#shop">SHOP NOW</a>
+    </div>
+
+    <div id="shop" class="section-title">Start Here</div>
+
+    <div class="grid">
+
+      <!-- SOAP 1 (Replace the Square link) -->
+      <div class="card">
+        <div class="icon">🧼</div>
+        <div>
+          <h2>Natural Soaps</h2>
+          <p>Small-batch tallow soaps made with real ingredients. Choose your bar and checkout securely.</p>
+          <a class="btn" href="PASTE_SQUARE_LINK_HERE" target="_blank" rel="noopener">Buy Soap</a>
+          <!-- internal-note example: <div class="internal-note">INVENTORY: 10</div> -->
+        </div>
+      </div>
+
+      <!-- SOAP 2 (Optional: second bar) -->
+      <div class="card">
+        <div class="icon">🧼</div>
+        <div>
+          <h2>Charcoal Clean Bar</h2>
+          <p>Deep-clean feel without harsh chemicals. Handmade, cured, and packed fresh.</p>
+          <a class="btn" href="PASTE_SQUARE_LINK_HERE" target="_blank" rel="noopener">Buy This Bar</a>
+        </div>
+      </div>
+
+      <!-- SOAP 3 (Optional: third bar) -->
+      <div class="card">
+        <div class="icon">🧼</div>
+        <div>
+          <h2>Oat &amp; Honey Bar</h2>
+          <p>Gentle, simple, and traditional. Great for everyday use.</p>
+          <a class="btn" href="PASTE_SQUARE_LINK_HERE" target="_blank" rel="noopener">Buy This Bar</a>
+        </div>
+      </div>
+
+      <!-- Archery -->
+      <div id="archery" class="card">
+        <div class="icon">🏹</div>
+        <div>
+          <h2>Archery Training</h2>
+          <p>Traditional archery — in person and digital. Start at your pace.</p>
+          <a class="btn" href="#" onclick="alert('Coming soon. For now, message to book a session.'); return false;">Start Training</a>
+        </div>
+      </div>
+
+      <!-- Bees -->
+      <div id="bees" class="card">
+        <div class="icon">🐝</div>
+        <div>
+          <h2>Bees &amp; Honey</h2>
+          <p>Raw honey, beeswax, and real-world beekeeping.</p>
+          <a class="btn" href="#" onclick="alert('Coming soon.'); return false;">Explore Bees</a>
+        </div>
+      </div>
+
+      <!-- Food -->
+      <div id="food" class="card">
+        <div class="icon">🍲</div>
+        <div>
+          <h2>Food &amp; Drinks</h2>
+          <p>Simple food. Real fuel. No nonsense.</p>
+          <a class="btn" href="#" onclick="alert('Coming soon.'); return false;">See Menu</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-title" style="margin-top:26px;">Products are just the entry point</div>
+
+    <div class="bottom">
+      <div class="panel">
+        <h3>Built With Intention</h3>
+        <ul>
+          <li>Small batches</li>
+          <li>No shortcuts</li>
+          <li>No private labeling</li>
+          <li>If we don’t use it ourselves, we don’t sell it</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h3>Stay Connected</h3>
+        <div class="signup">
+          <input type="email" placeholder="Enter your email" />
+          <button class="btn" type="button" onclick="alert('For now, this is a placeholder. Later we’ll connect it to a real email list.');">Sign Up</button>
+        </div>
+        <div class="small">Coming online: education, land projects, tools, and community systems.</div>
+      </div>
+    </div>
+
+    <footer>
+      Built with intention. No shortcuts. © Back To Basics Co
+    </footer>
+
   </div>
-
-  <div class="card">
-    <h2>Archery Training</h2>
-    <p>Traditional archery — in person and digital.</p>
-    <a class="btn" href="#">Start Training</a>
-  </div>
-
-  <div class="card">
-    <h2>Bees & Honey</h2>
-    <p>Raw honey, beeswax, and real beekeeping.</p>
-    <a class="btn" href="#">Explore</a>
-  </div>
-
-  <div class="card">
-    <h2>Food & Drinks</h2>
-    <p>Simple food. Real fuel. No nonsense.</p>
-    <a class="btn" href="#">See Menu</a>
-  </div>
-
-</section>
-
-<footer>
-  Built with intention. No shortcuts. © Back To Basics Co
-</footer>
-
 </body>
 </html>
