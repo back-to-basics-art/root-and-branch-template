@@ -1,120 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Back To Basics Co</title>
+
   <style>
     body {
       margin: 0;
       font-family: Georgia, serif;
-      background: #f4efe9;
-      color: #2e2a24;
-    }
-    header {
-      background: #2f3b2f;
-      color: #fff;
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 16px;
-      font-weight: bold;
-    }
-    .hero {
+      background: #f4efe8;
+      color: #2b2b2b;
       text-align: center;
-      padding: 60px 20px;
     }
-    .hero h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+
+    header {
+      padding: 3rem 1rem 2rem;
     }
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 24px;
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
     }
+
+    .tagline {
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      margin-bottom: 2rem;
+    }
+
     .btn {
-      background: #2f3b2f;
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: #2f3f2f;
       color: #fff;
-      padding: 12px 24px;
-      border-radius: 6px;
       text-decoration: none;
+      border-radius: 6px;
       font-weight: bold;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
+
+    .section {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
     }
+
     .card {
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      border: 1px solid #ddd;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.8rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      text-align: left;
     }
-    .card h3 {
+
+    .card h2 {
       margin-top: 0;
     }
+
     footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #666;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    /* INTERNAL NOTE — not shown */
+    .inventory-internal {
+      display: none;
     }
   </style>
 </head>
+
 <body>
 
 <header>
-  <strong>BACK TO BASICS CO</strong>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Shop</a>
-    <a href="#">Archery</a>
-    <a href="#">Food</a>
-  </nav>
+  <div class="tagline">Learn. Build. Eat well. Help others do the same.</div>
+  <h1>BACK TO BASICS CO</h1>
+  <div class="tagline">Natural · Handmade · Community-Focused</div>
 </header>
 
-<section class="hero">
-  <p>Learn. Build. Eat well. Help others do the same.</p>
-  <h1>BACK TO BASICS CO</h1>
-  <p>Natural · Handmade · Community-Focused</p>
-  <a class="btn" href="#shop">SHOP NOW</a>
-</section>
+<section class="section">
 
-<section id="shop" class="grid">
   <div class="card">
-    <h3>Natural Soaps</h3>
+    <h2>Natural Soaps</h2>
     <p>Small-batch tallow soaps made with real ingredients.</p>
-    <p><strong>$8 each</strong></p>
-    <p>Available: 10 bars</p>
-    <a class="btn" href="#">Buy Soap</a>
+    <p><strong>$8 per bar</strong></p>
+
+    <!-- REPLACE THIS LINK WITH YOUR SQUARE PAYMENT LINK -->
+    <a
+      class="btn"
+      href="https://square.link/u/REPLACE_THIS"
+      target="_blank"
+      rel="noopener"
+    >
+      Buy Soap
+    </a>
+
+    <!-- INTERNAL INVENTORY (FOR YOU ONLY) -->
+    <div class="inventory-internal">
+      Inventory: 10 bars
+    </div>
   </div>
 
   <div class="card">
-    <h3>Archery Training</h3>
+    <h2>Archery Training</h2>
     <p>Traditional archery — in person and digital.</p>
     <a class="btn" href="#">Start Training</a>
   </div>
 
   <div class="card">
-    <h3>Bees & Honey</h3>
+    <h2>Bees & Honey</h2>
     <p>Raw honey, beeswax, and real beekeeping.</p>
     <a class="btn" href="#">Explore</a>
   </div>
 
   <div class="card">
-    <h3>Food & Drinks</h3>
+    <h2>Food & Drinks</h2>
     <p>Simple food. Real fuel. No nonsense.</p>
     <a class="btn" href="#">See Menu</a>
   </div>
+
 </section>
 
 <footer>
